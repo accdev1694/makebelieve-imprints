@@ -60,7 +60,8 @@ export interface Breadcrumb {
       }
 
       .breadcrumb-item a:hover {
-        color: var(--primary-blue);
+        color: var(--primary-cyan);
+        opacity: 0.8;
         text-shadow: var(--glow-cyan);
       }
 

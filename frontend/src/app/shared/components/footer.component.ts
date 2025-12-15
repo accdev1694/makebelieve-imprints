@@ -252,7 +252,7 @@ import { FormsModule } from '@angular/forms';
       .newsletter-btn {
         width: 44px;
         height: 44px;
-        background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue));
+        background: var(--gradient-primary);
         border: none;
         border-radius: var(--radius-md);
         color: white;

@@ -233,7 +233,7 @@ import { CartService } from '../../core/services/cart.service';
         left: 0;
         width: 0;
         height: 2px;
-        background: linear-gradient(90deg, var(--primary-cyan), var(--primary-blue));
+        background: var(--gradient-primary);
         transition: width var(--transition-base);
       }
 
@@ -326,7 +326,7 @@ import { CartService } from '../../core/services/cart.service';
         position: absolute;
         top: -6px;
         right: -6px;
-        background: linear-gradient(135deg, var(--secondary-red), var(--secondary-coral));
+        background: var(--gradient-error);
         color: white;
         font-size: 0.7rem;
         font-weight: 700;
@@ -337,7 +337,7 @@ import { CartService } from '../../core/services/cart.service';
         align-items: center;
         justify-content: center;
         padding: 0 6px;
-        box-shadow: var(--shadow-glow-red);
+        box-shadow: var(--shadow-glow-error);
       }
 
       /* User Menu */
@@ -401,7 +401,7 @@ import { CartService } from '../../core/services/cart.service';
       }
 
       .dropdown-item.logout {
-        color: var(--secondary-red);
+        color: var(--semantic-error);
       }
 
       .dropdown-item.logout:hover {
@@ -436,7 +436,7 @@ import { CartService } from '../../core/services/cart.service';
 
       .btn-login {
         padding: 0.625rem 1.5rem;
-        background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue));
+        background: var(--gradient-primary);
         color: white;
         border-radius: var(--radius-full);
         text-decoration: none;

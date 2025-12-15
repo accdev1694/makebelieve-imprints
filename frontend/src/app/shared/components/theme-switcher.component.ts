@@ -99,7 +99,7 @@ import { ThemeService } from '../../core/services/theme.service';
         left: 2px;
         width: 18px;
         height: 18px;
-        background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue));
+        background: var(--gradient-primary);
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -110,7 +110,7 @@ import { ThemeService } from '../../core/services/theme.service';
 
       .switcher-thumb.light {
         left: 22px;
-        background: linear-gradient(135deg, var(--accent-orange), var(--secondary-coral));
+        background: linear-gradient(135deg, var(--semantic-warning), var(--semantic-error));
       }
 
       .icon {

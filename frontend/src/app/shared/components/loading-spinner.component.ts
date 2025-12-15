@@ -46,7 +46,7 @@ import { CommonModule } from '@angular/common';
         height: 100%;
         border: 3px solid var(--surface);
         border-top: 3px solid var(--primary-cyan);
-        border-right: 3px solid var(--secondary-red);
+        border-right: 3px solid var(--semantic-error);
         border-radius: 50%;
         animation: spin 0.8s linear infinite;
         box-shadow: var(--glow-cyan);

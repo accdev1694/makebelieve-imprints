@@ -106,7 +106,7 @@ export type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'success' | 'ou
         height: 16px;
         border: 2px solid var(--surface);
         border-top: 2px solid var(--primary-cyan);
-        border-right: 2px solid var(--secondary-red);
+        border-right: 2px solid var(--semantic-error);
         border-radius: 50%;
         animation: spin 0.8s linear infinite;
       }

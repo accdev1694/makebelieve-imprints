@@ -2,13 +2,14 @@
 
 :root,
 :root[data-theme='dark'] {
-  /* Primary Colors - Inspired by Modern Dark UI */
+  /* Primary Brand Color */
   --primary-cyan: #00d9ff;
-  --primary-blue: #0099ff;
-  --secondary-red: #ff3b5c;
-  --secondary-coral: #ff6b88;
-  --accent-purple: #a855f7;
-  --accent-orange: #ff8a00;
+
+  /* Semantic Colors */
+  --semantic-error: #ff3b5c;
+  --semantic-success: #10b981;
+  --semantic-warning: #f59e0b;
+  --semantic-info: #3b82f6;
 
   /* Dark Theme Colors */
   --bg-primary: #0a0a0f;
@@ -28,16 +29,12 @@
   --border-primary: rgba(255, 255, 255, 0.1);
   --border-secondary: rgba(255, 255, 255, 0.05);
   --border-cyan: rgba(0, 217, 255, 0.3);
-  --border-red: rgba(255, 59, 92, 0.3);
+  --border-error: rgba(255, 59, 92, 0.3);
 
   /* Gradient Combinations */
-  --gradient-primary: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-blue) 100%);
-  --gradient-secondary: linear-gradient(
-    135deg,
-    var(--secondary-red) 0%,
-    var(--secondary-coral) 100%
-  );
-  --gradient-accent: linear-gradient(135deg, var(--accent-purple) 0%, var(--primary-cyan) 100%);
+  --gradient-primary: linear-gradient(135deg, var(--primary-cyan) 0%, #0099cc 100%);
+  --gradient-error: linear-gradient(135deg, var(--semantic-error) 0%, #ff6b88 100%);
+  --gradient-success: linear-gradient(135deg, var(--semantic-success) 0%, #059669 100%);
   --gradient-hero: radial-gradient(
     ellipse at center,
     rgba(0, 0, 0, 0) 0%,
@@ -48,8 +45,8 @@
 
   /* Glow Effects */
   --glow-cyan: 0 0 30px rgba(0, 217, 255, 0.3);
-  --glow-red: 0 0 30px rgba(255, 59, 92, 0.3);
-  --glow-purple: 0 0 30px rgba(168, 85, 247, 0.3);
+  --glow-error: 0 0 30px rgba(255, 59, 92, 0.3);
+  --glow-success: 0 0 30px rgba(16, 185, 129, 0.3);
 
   /* Shadows - Layered & Modern */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -57,7 +54,7 @@
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.3);
   --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.6), 0 8px 32px rgba(0, 0, 0, 0.4);
   --shadow-glow-cyan: 0 8px 32px rgba(0, 217, 255, 0.2), 0 4px 16px rgba(0, 217, 255, 0.1);
-  --shadow-glow-red: 0 8px 32px rgba(255, 59, 92, 0.2), 0 4px 16px rgba(255, 59, 92, 0.1);
+  --shadow-glow-error: 0 8px 32px rgba(255, 59, 92, 0.2), 0 4px 16px rgba(255, 59, 92, 0.1);
 
   /* Border Radius */
   --radius-xs: 0.25rem;
@@ -111,7 +108,7 @@
   --border-primary: rgba(0, 0, 0, 0.1);
   --border-secondary: rgba(0, 0, 0, 0.05);
   --border-cyan: rgba(0, 217, 255, 0.4);
-  --border-red: rgba(255, 59, 92, 0.4);
+  --border-error: rgba(255, 59, 92, 0.4);
 
   /* Shadows - Lighter */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -119,12 +116,12 @@
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15), 0 4px 16px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.2), 0 8px 32px rgba(0, 0, 0, 0.15);
   --shadow-glow-cyan: 0 8px 32px rgba(0, 217, 255, 0.25), 0 4px 16px rgba(0, 217, 255, 0.15);
-  --shadow-glow-red: 0 8px 32px rgba(255, 59, 92, 0.25), 0 4px 16px rgba(255, 59, 92, 0.15);
+  --shadow-glow-error: 0 8px 32px rgba(255, 59, 92, 0.25), 0 4px 16px rgba(255, 59, 92, 0.15);
 
   /* Glow Effects - Lighter */
   --glow-cyan: 0 0 20px rgba(0, 217, 255, 0.4);
-  --glow-red: 0 0 20px rgba(255, 59, 92, 0.4);
-  --glow-purple: 0 0 20px rgba(168, 85, 247, 0.4);
+  --glow-error: 0 0 20px rgba(255, 59, 92, 0.4);
+  --glow-success: 0 0 20px rgba(16, 185, 129, 0.4);
 }
 
 * {
@@ -188,7 +185,8 @@ a {
 }
 
 a:hover {
-  color: var(--primary-blue);
+  color: var(--primary-cyan);
+  opacity: 0.8;
   text-shadow: var(--glow-cyan);
 }
 
@@ -201,7 +199,7 @@ a:hover {
 }
 
 .gradient-text-red {
-  background: var(--gradient-secondary);
+  background: var(--gradient-error);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -212,7 +210,7 @@ a:hover {
 }
 
 .gradient-bg-red {
-  background: var(--gradient-secondary);
+  background: var(--gradient-error);
 }
 
 .text-glow-cyan {
@@ -220,7 +218,7 @@ a:hover {
 }
 
 .text-glow-red {
-  text-shadow: var(--glow-red);
+  text-shadow: var(--glow-error);
 }
 
 /* Glass Morphism Card */
@@ -248,8 +246,8 @@ a:hover {
 }
 
 .card-red {
-  border-color: var(--border-red);
-  box-shadow: var(--shadow-glow-red);
+  border-color: var(--border-error);
+  box-shadow: var(--shadow-glow-error);
 }
 
 /* Modern Button System */
@@ -289,8 +287,8 @@ a:hover {
 /* Outline Button - Secondary */
 .btn-outline-red {
   background: transparent;
-  color: var(--secondary-red);
-  border: 1px solid var(--secondary-red);
+  color: var(--semantic-error);
+  border: 1px solid var(--semantic-error);
 }
 
 .btn-outline-red:hover:not(:disabled) {
@@ -311,7 +309,7 @@ a:hover {
 
 /* Solid Button - Secondary */
 .btn-solid-red {
-  background: var(--gradient-secondary);
+  background: var(--gradient-error);
   color: var(--text-primary);
   border: none;
 }

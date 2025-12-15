@@ -456,7 +456,7 @@ interface Testimonial {
       }
 
       .btn-primary {
-        background: linear-gradient(135deg, #c92a3e 0%, #a01e2e 100%);
+        background: var(--gradient-primary);
         color: white;
         border: none;
       }
@@ -478,8 +478,8 @@ interface Testimonial {
 
       .btn-secondary {
         background: transparent;
-        color: #c92a3e;
-        border: 1px solid #c92a3e;
+        color: var(--primary-cyan);
+        border: 1px solid var(--primary-cyan);
       }
 
       .btn-primary:hover {
@@ -487,7 +487,7 @@ interface Testimonial {
       }
 
       .btn-secondary:hover {
-        background: rgba(201, 42, 62, 0.1);
+        background: rgba(0, 217, 255, 0.1);
         transform: translateY(-3px);
       }
 

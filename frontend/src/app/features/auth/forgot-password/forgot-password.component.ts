@@ -137,7 +137,7 @@ import { AuthService } from '../../../core/services/auth.service';
 
       .error {
         display: block;
-        color: var(--secondary-red);
+        color: var(--semantic-error);
         font-size: 0.85rem;
         margin-top: 0.25rem;
       }
@@ -145,7 +145,7 @@ import { AuthService } from '../../../core/services/auth.service';
       .btn-primary {
         width: 100%;
         padding: 1rem;
-        background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue));
+        background: var(--gradient-primary);
         color: white;
         border: none;
         border-radius: var(--radius-md);
@@ -193,16 +193,17 @@ import { AuthService } from '../../../core/services/auth.service';
       }
 
       .link:hover {
-        color: var(--primary-blue);
+        color: var(--primary-cyan);
+        opacity: 0.8;
       }
 
       .error-message {
         margin-top: 1rem;
         padding: 0.875rem;
         background: rgba(255, 59, 92, 0.1);
-        border: 1px solid var(--secondary-red);
+        border: 1px solid var(--semantic-error);
         border-radius: var(--radius-md);
-        color: var(--secondary-red);
+        color: var(--semantic-error);
         font-size: 0.95rem;
         text-align: center;
       }

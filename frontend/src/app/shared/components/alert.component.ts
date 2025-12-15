@@ -58,21 +58,21 @@ export type AlertType = 'info' | 'success' | 'warning' | 'error';
       }
 
       .alert-success {
-        border-color: var(--primary-cyan);
-        box-shadow: var(--shadow-glow-cyan);
-        color: var(--primary-cyan);
+        border-color: var(--semantic-success);
+        box-shadow: 0 4px 16px rgba(16, 185, 129, 0.2);
+        color: var(--semantic-success);
       }
 
       .alert-warning {
-        border-color: var(--accent-orange);
-        box-shadow: 0 4px 16px rgba(255, 138, 0, 0.2);
-        color: var(--accent-orange);
+        border-color: var(--semantic-warning);
+        box-shadow: 0 4px 16px rgba(245, 158, 11, 0.2);
+        color: var(--semantic-warning);
       }
 
       .alert-error {
-        border-color: var(--border-red);
-        box-shadow: var(--shadow-glow-red);
-        color: var(--secondary-red);
+        border-color: var(--border-error);
+        box-shadow: var(--shadow-glow-error);
+        color: var(--semantic-error);
       }
 
       .alert-close {
