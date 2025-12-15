@@ -68,14 +68,18 @@ app.get('/api', (req, res) => {
 const authRoutes = require('./routes/auth.routes')
 const productRoutes = require('./routes/product.routes')
 const categoryRoutes = require('./routes/category.routes')
-// const orderRoutes = require('./routes/order.routes');
+const shippingRoutes = require('./routes/shipping.routes')
+const orderRoutes = require('./routes/order.routes')
+const checkoutRoutes = require('./routes/checkout.routes')
 // const userRoutes = require('./routes/user.routes');
 
 // Use routes
 app.use('/api/auth', authRoutes)
 app.use('/api/products', productRoutes)
 app.use('/api/categories', categoryRoutes)
-// app.use('/api/orders', orderRoutes);
+app.use('/api/shipping', shippingRoutes)
+app.use('/api/orders', orderRoutes)
+app.use('/api/checkout', checkoutRoutes)
 // app.use('/api/users', userRoutes);
 
 // 404 handler

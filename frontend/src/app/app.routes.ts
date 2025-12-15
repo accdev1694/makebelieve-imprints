@@ -47,6 +47,13 @@ export const routes: Routes = [
           import('./features/checkout/checkout.component').then((m) => m.CheckoutComponent),
       },
       {
+        path: 'checkout/confirmation',
+        loadComponent: () =>
+          import('./features/checkout/order-confirmation.component').then(
+            (m) => m.OrderConfirmationComponent
+          ),
+      },
+      {
         path: 'account',
         loadComponent: () =>
           import('./features/account/account.component').then((m) => m.AccountComponent),

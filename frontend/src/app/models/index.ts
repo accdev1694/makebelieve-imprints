@@ -66,11 +66,31 @@ export interface OrderItem {
 export type OrderStatus = 'pending' | 'processing' | 'shipped' | 'delivered' | 'cancelled';
 
 export interface Address {
+  firstName?: string;
+  lastName?: string;
   street: string;
+  street2?: string;
   city: string;
   state: string;
   zipCode: string;
   country: string;
+  phone?: string;
+}
+
+export interface ShippingMethod {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  estimatedDays: string;
+}
+
+export interface CheckoutData {
+  shippingAddress?: Address;
+  billingAddress?: Address;
+  useSameAddress?: boolean;
+  shippingMethod?: ShippingMethod;
+  paymentMethod?: string;
 }
 
 export interface ApiResponse<T> {

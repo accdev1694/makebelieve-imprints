@@ -9,7 +9,7 @@ import { Product } from '../../models';
   imports: [CommonModule, RouterModule],
   template: `
     <div
-      class="product-card group relative bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden"
+      class="product-card group relative bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-cyan-400 dark:border-cyan-500"
     >
       <!-- Product Image -->
       <div class="relative aspect-square overflow-hidden bg-gray-100 dark:bg-gray-700">

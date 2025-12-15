@@ -5,6 +5,11 @@ const seedData = async () => {
   try {
     console.log('🌱 Starting database seed...')
 
+    // Clear existing data
+    console.log('🗑️  Clearing existing data...')
+    await Product.destroy({ where: {}, truncate: true, cascade: true })
+    await Category.destroy({ where: {}, truncate: true, cascade: true })
+
     // Create Categories
     const categories = await Category.bulkCreate([
       {
@@ -219,7 +224,7 @@ const seedData = async () => {
         stock: 600,
         categoryId: categories[4].id,
         images: [
-          'https://images.unsplash.com/photo-1586953208270-e80d13e83f0c?w=800&q=80',
+          'https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=800&q=80',
         ],
         productType: 'physical',
         isFeatured: false,

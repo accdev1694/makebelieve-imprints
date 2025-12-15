@@ -3,7 +3,23 @@
 **Project**: Full Stack Ecommerce Site for Printing Business  
 **Platform**: Angular Frontend + Backend  
 **Start Date**: December 13, 2025  
-**Last Updated**: December 15, 2025 (Phase 5: Shopping Cart - COMPLETE! ✅)
+**Last Updated**: December 15, 2025 (Bug Fixes & Polish - Products Page Styling Complete ✅)
+
+---
+
+## Recent Updates (December 15, 2025)
+
+### Bug Fixes & Improvements
+
+- ✅ **Tailwind CSS Configuration**: Fixed missing Tailwind CSS v3 setup, enabled PostCSS plugin
+- ✅ **Dark Mode Support**: Configured Tailwind dark mode with `data-theme` attribute selector
+- ✅ **Product Card Styling**: Added cyan borders (1px) to product cards for brand consistency
+- ✅ **Product Images**: Fixed image display logic to handle arrays, updated seed data with Unsplash images
+- ✅ **Category Display**: Fixed product cards showing "[OBJECT OBJECT]" by handling category objects
+- ✅ **Typography**: Applied Orbitron font to all h1 and h2 elements across the site including auth pages
+- ✅ **Database Seeding**: Successfully seeded database with 5 categories and 10 products with real images
+- ✅ **PostgreSQL Setup**: Configured and running PostgreSQL 16-alpine in Docker container
+- ✅ **Product Model Fix**: Removed conflicting virtual category field in Sequelize model
 
 ---
 
@@ -176,33 +192,41 @@
 
 ---
 
-## Phase 6: Checkout Process (Week 4)
+## Phase 6: Checkout Process (Week 4) - IN PROGRESS! 🟨
 
 ### 6.1 Checkout Pages
 
 | Status | Task                      | Description                       | Assigned | Due Date |
 | ------ | ------------------------- | --------------------------------- | -------- | -------- |
-| ⬜     | Checkout Step 1: Shipping | Address form and selection        | -        | Day 15   |
-| ⬜     | Checkout Step 2: Billing  | Billing address and method        | -        | Day 15   |
-| ⬜     | Checkout Step 3: Review   | Order review before payment       | -        | Day 16   |
-| ⬜     | Checkout Step 4: Payment  | Payment form with Stripe          | -        | Day 16   |
+| ✅     | Checkout Step 1: Shipping | Address form and selection        | -        | Day 15   |
+| ✅     | Checkout Step 2: Billing  | Billing address and method        | -        | Day 15   |
+| ✅     | Checkout Step 3: Review   | Order review before payment       | -        | Day 16   |
+| ✅     | Checkout Step 4: Payment  | Payment form with Stripe          | -        | Day 16   |
 | ⬜     | Order Confirmation Page   | Success message and order details | -        | Day 17   |
 
-### 6.2 Shipping & Tax Calculation
+### 6.2 Shipping & Tax Calculation (Royal Mail Click & Drop Integration)
 
-| Status | Task                      | Description                       | Assigned | Due Date |
-| ------ | ------------------------- | --------------------------------- | -------- | -------- |
-| ⬜     | Shipping Methods Endpoint | GET /api/shipping-methods         | -        | Day 15   |
-| ⬜     | Shipping Cost Calculation | Calculate based on address/weight | -        | Day 15   |
-| ⬜     | Tax Calculation Endpoint  | GET /api/tax-rate                 | -        | Day 16   |
-| ⬜     | Address Validation        | Validate shipping address format  | -        | Day 16   |
+| Status | Task                              | Description                                   | Assigned | Due Date |
+| ------ | --------------------------------- | --------------------------------------------- | -------- | -------- |
+| ✅     | Royal Mail Service Infrastructure | OAuth2, rate calculation, label generation    | -        | Day 15   |
+| ✅     | Shipping Routes Backend           | POST /rates, /create, GET /track, /countries  | -        | Day 15   |
+| ✅     | Shipping Service Frontend         | Angular service for Royal Mail API calls      | -        | Day 15   |
+| ⬜     | Royal Mail API Credentials        | Obtain and configure Click & Drop credentials | -        | Day 15   |
+| ⬜     | Test UK Shipping Rates            | Validate domestic rate calculation            | -        | Day 15   |
+| ⬜     | Test International Shipping       | Validate international rates with customs     | -        | Day 16   |
+| ⬜     | Shipment Label Generation         | Test label creation and download              | -        | Day 16   |
+| ⬜     | Tracking Integration              | Implement package tracking display            | -        | Day 16   |
+| ⬜     | Tax Calculation Endpoint          | GET /api/tax-rate (VAT for UK, etc.)          | -        | Day 16   |
+| ⬜     | Address Validation                | Validate shipping address format              | -        | Day 16   |
 
 ### 6.3 Checkout Service
 
 | Status | Task                      | Description                | Assigned | Due Date |
 | ------ | ------------------------- | -------------------------- | -------- | -------- |
-| ⬜     | Checkout Service Creation | Manage checkout flow state | -        | Day 15   |
+| ✅     | Checkout Service Creation | Manage checkout flow state | -        | Day 15   |
 | ⬜     | Order Creation Endpoint   | POST /api/orders           | -        | Day 16   |
+| ⬜     | Order Controller Logic    | Create order with items    | -        | Day 16   |
+| ⬜     | Wire Checkout to Backend  | Connect UI to order API    | -        | Day 16   |
 | ⬜     | Draft Order Saving        | Save incomplete orders     | -        | Day 17   |
 
 ---
