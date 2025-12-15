@@ -374,7 +374,7 @@ interface Testimonial {
 
       .hero {
         text-align: center;
-        padding: 6rem 2rem;
+        padding: 6rem 4rem;
         background: var(--surface-glass);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
@@ -494,6 +494,7 @@ interface Testimonial {
       /* Featured Products Carousel */
       .featured-products {
         margin-bottom: 4rem;
+        padding: 0 4rem;
       }
 
       .section-title {
@@ -690,6 +691,7 @@ interface Testimonial {
       /* Category Showcase */
       .categories {
         margin-bottom: 4rem;
+        padding: 0 4rem;
       }
 
       .category-grid {
@@ -835,7 +837,7 @@ interface Testimonial {
       /* Testimonials Section */
       .testimonials {
         margin-bottom: 4rem;
-        padding: 3rem 0;
+        padding: 3rem 4rem;
       }
 
       .testimonials-carousel {
@@ -968,6 +970,7 @@ interface Testimonial {
         max-width: 1200px;
         margin-left: auto;
         margin-right: auto;
+        padding: 0 4rem;
       }
 
       .cta-card {
@@ -1446,6 +1449,7 @@ interface Testimonial {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 2rem;
         margin-bottom: 4rem;
+        padding: 0 4rem;
       }
 
       .feature-card {
@@ -1547,7 +1551,7 @@ interface Testimonial {
       }
 
       .stats {
-        padding: 3rem 2rem;
+        padding: 3rem 4rem;
         background: var(--surface-glass);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);

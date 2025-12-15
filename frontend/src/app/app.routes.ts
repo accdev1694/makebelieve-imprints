@@ -28,6 +28,16 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'about',
+        loadComponent: () =>
+          import('./features/about/about.component').then((m) => m.AboutComponent),
+      },
+      {
+        path: 'contact',
+        loadComponent: () =>
+          import('./features/contact/contact.component').then((m) => m.ContactComponent),
+      },
+      {
         path: 'cart',
         loadComponent: () => import('./features/cart/cart.component').then((m) => m.CartComponent),
       },

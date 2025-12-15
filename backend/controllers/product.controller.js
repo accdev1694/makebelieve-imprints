@@ -14,9 +14,12 @@ const getAllProducts = async (req, res, next) => {
       categoryId,
       minPrice,
       maxPrice,
+      search,
       sortBy = 'createdAt',
-      order = 'DESC',
-      isFeatured,
+      sortOrder = 'desc',
+      customizable,
+      featured,
+      tags,
       isActive = true,
     } = req.query
 
@@ -33,19 +36,44 @@ const getAllProducts = async (req, res, next) => {
       if (maxPrice) where.price[Op.lte] = parseFloat(maxPrice)
     }
 
-    if (isFeatured !== undefined) {
-      where.isFeatured = isFeatured === 'true'
+    if (featured !== undefined) {
+      where.isFeatured = featured === 'true'
+    }
+
+    if (customizable !== undefined) {
+      where.isCustomizable = customizable === 'true'
+    }
+
+    // Search filter
+    if (search && search.trim().length > 0) {
+      const searchTerm = search.trim()
+      where[Op.or] = [
+        { name: { [Op.iLike]: `%${searchTerm}%` } },
+        { description: { [Op.iLike]: `%${searchTerm}%` } },
+        { sku: { [Op.iLike]: `%${searchTerm}%` } },
+      ]
+    }
+
+    // Tags filter
+    if (tags) {
+      const tagArray = tags.split(',').map((t) => t.trim())
+      where.tags = { [Op.overlap]: tagArray }
     }
 
     // Calculate pagination
     const offset = (parseInt(page) - 1) * parseInt(limit)
+
+    // Validate sortBy field
+    const allowedSortFields = ['price', 'name', 'createdAt', 'rating']
+    const sortField = allowedSortFields.includes(sortBy) ? sortBy : 'createdAt'
+    const order = sortOrder.toLowerCase() === 'asc' ? 'ASC' : 'DESC'
 
     // Query products
     const { count, rows: products } = await Product.findAndCountAll({
       where,
       limit: parseInt(limit),
       offset,
-      order: [[sortBy, order.toUpperCase()]],
+      order: [[sortField, order]],
       include: [
         {
           model: Category,
@@ -61,13 +89,11 @@ const getAllProducts = async (req, res, next) => {
     return successResponse(
       res,
       {
-        products,
-        pagination: {
-          total: count,
-          page: parseInt(page),
-          limit: parseInt(limit),
-          totalPages,
-        },
+        data: products,
+        total: count,
+        page: parseInt(page),
+        limit: parseInt(limit),
+        totalPages,
       },
       'Products retrieved successfully'
     )
@@ -281,7 +307,7 @@ const getRelatedProducts = async (req, res, next) => {
 
     return successResponse(
       res,
-      { products },
+      products,
       'Related products retrieved successfully'
     )
   } catch (error) {

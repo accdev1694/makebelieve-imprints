@@ -1,0 +1,19 @@
+.cart-page {
+  // Custom cart page styles
+}
+
+// Animation for item removal
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+}
+
+.removing {
+  animation: fadeOut 0.3s ease-out forwards;
+}

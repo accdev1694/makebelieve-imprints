@@ -63,8 +63,8 @@ const seedData = async () => {
         stock: 1000,
         categoryId: categories[0].id,
         images: [
-          'https://via.placeholder.com/800x600/4CAF50/FFFFFF?text=Business+Card+Front',
-          'https://via.placeholder.com/800x600/4CAF50/FFFFFF?text=Business+Card+Back',
+          'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80',
+          'https://images.unsplash.com/photo-1559523182-a284c3fb7cff?w=800&q=80',
         ],
         productType: 'physical',
         isFeatured: true,
@@ -84,7 +84,7 @@ const seedData = async () => {
         stock: 500,
         categoryId: categories[0].id,
         images: [
-          'https://via.placeholder.com/800x600/4CAF50/FFFFFF?text=Premium+Card',
+          'https://images.unsplash.com/photo-1565372195458-9de0b320ef04?w=800&q=80',
         ],
         productType: 'physical',
         isFeatured: true,
@@ -104,7 +104,7 @@ const seedData = async () => {
         stock: 750,
         categoryId: categories[1].id,
         images: [
-          'https://via.placeholder.com/800x600/2196F3/FFFFFF?text=A4+Flyer',
+          'https://images.unsplash.com/photo-1567427018141-0584cfcbf1b8?w=800&q=80',
         ],
         productType: 'physical',
         isFeatured: false,
@@ -122,7 +122,7 @@ const seedData = async () => {
         stock: 800,
         categoryId: categories[1].id,
         images: [
-          'https://via.placeholder.com/800x600/2196F3/FFFFFF?text=A5+Flyer',
+          'https://images.unsplash.com/photo-1586282391129-76a6df230234?w=800&q=80',
         ],
         productType: 'physical',
         isFeatured: false,
@@ -142,7 +142,7 @@ const seedData = async () => {
         stock: 300,
         categoryId: categories[2].id,
         images: [
-          'https://via.placeholder.com/800x600/FF9800/FFFFFF?text=24x36+Poster',
+          'https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?w=800&q=80',
         ],
         productType: 'physical',
         isFeatured: true,
@@ -160,7 +160,7 @@ const seedData = async () => {
         stock: 400,
         categoryId: categories[2].id,
         images: [
-          'https://via.placeholder.com/800x600/FF9800/FFFFFF?text=18x24+Poster',
+          'https://images.unsplash.com/photo-1594122230689-45899d9e6f69?w=800&q=80',
         ],
         productType: 'physical',
         isFeatured: false,
@@ -180,7 +180,7 @@ const seedData = async () => {
         stock: 150,
         categoryId: categories[3].id,
         images: [
-          'https://via.placeholder.com/800x600/E91E63/FFFFFF?text=Vinyl+Banner',
+          'https://images.unsplash.com/photo-1551818255-e6e10975bc17?w=800&q=80',
         ],
         productType: 'physical',
         isFeatured: true,
@@ -200,7 +200,7 @@ const seedData = async () => {
         stock: 80,
         categoryId: categories[3].id,
         images: [
-          'https://via.placeholder.com/800x600/E91E63/FFFFFF?text=Banner+Stand',
+          'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80',
         ],
         productType: 'physical',
         isFeatured: false,
@@ -219,7 +219,7 @@ const seedData = async () => {
         stock: 600,
         categoryId: categories[4].id,
         images: [
-          'https://via.placeholder.com/800x600/9C27B0/FFFFFF?text=Tri-fold+Brochure',
+          'https://images.unsplash.com/photo-1586953208270-e80d13e83f0c?w=800&q=80',
         ],
         productType: 'physical',
         isFeatured: false,
@@ -237,7 +237,7 @@ const seedData = async () => {
         stock: 200,
         categoryId: categories[4].id,
         images: [
-          'https://via.placeholder.com/800x600/9C27B0/FFFFFF?text=Product+Catalog',
+          'https://images.unsplash.com/photo-1603484477859-abe6a73f9366?w=800&q=80',
         ],
         productType: 'physical',
         isFeatured: false,

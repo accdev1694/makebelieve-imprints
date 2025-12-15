@@ -12,8 +12,8 @@ export interface Product {
   name: string;
   description: string;
   price: number;
-  category: string;
-  imageUrl: string;
+  category: string | { id: string; name: string; slug: string };
+  imageUrl?: string;
   images: string[];
   customizable: boolean;
   stock: number;

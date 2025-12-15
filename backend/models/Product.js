@@ -130,6 +130,20 @@ const Product = sequelize.define(
       type: DataTypes.INTEGER,
       defaultValue: 0,
     },
+    // Virtual field for backward compatibility
+    imageUrl: {
+      type: DataTypes.VIRTUAL,
+      get() {
+        const images = this.getDataValue('images')
+        return images && images.length > 0 ? images[0] : null
+      },
+    },
+    customizable: {
+      type: DataTypes.VIRTUAL,
+      get() {
+        return this.getDataValue('isCustomizable')
+      },
+    },
   },
   {
     timestamps: true,
