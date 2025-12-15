@@ -113,6 +113,7 @@ import { CartService } from '../../core/services/cart.service';
           </div>
 
           <ng-template #loginButton>
+            <a routerLink="/auth/register" class="btn-register">Sign Up</a>
             <a routerLink="/auth/login" class="btn-login">Login</a>
           </ng-template>
 
@@ -413,7 +414,26 @@ import { CartService } from '../../core/services/cart.service';
         margin: 0.5rem 0;
       }
 
-      /* Login Button */
+      /* Login & Register Buttons */
+      .btn-register {
+        padding: 0.625rem 1.5rem;
+        background: transparent;
+        color: var(--primary-cyan);
+        border: 1px solid var(--primary-cyan);
+        border-radius: var(--radius-full);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: all var(--transition-base);
+      }
+
+      .btn-register:hover {
+        background: var(--primary-cyan);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 217, 255, 0.3);
+      }
+
       .btn-login {
         padding: 0.625rem 1.5rem;
         background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue));
