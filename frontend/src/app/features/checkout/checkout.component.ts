@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormsModule,
@@ -419,7 +419,7 @@ import { CheckoutData, Address, ShippingMethod } from '../../models';
   `,
   styles: [],
 })
-export class CheckoutComponent {
+export class CheckoutComponent implements OnInit, OnDestroy {
   currentStep = signal(1);
   steps = ['Shipping', 'Shipping Method', 'Payment'];
 
@@ -498,6 +498,75 @@ export class CheckoutComponent {
 
     this.paymentForm = this.fb.group({
       useSameAddress: [true],
+    });
+
+    // Load draft order if exists
+    this.loadDraft();
+
+    // Auto-save every 30 seconds
+    this.autoSaveInterval = setInterval(() => {
+      this.saveDraft();
+    }, 30000);
+  }
+
+  ngOnDestroy(): void {
+    if (this.autoSaveInterval) {
+      clearInterval(this.autoSaveInterval);
+    }
+  }
+
+  private autoSaveInterval: any;
+
+  private saveDraft(): void {
+    if (!this.cartItems.length) return;
+
+    const formData = {
+      shipping: this.shippingForm.value,
+      payment: this.paymentForm.value,
+    };
+
+    this.orderService
+      .saveDraft(this.currentStep(), formData, this.cartItems, this.checkoutData.shippingMethod)
+      .subscribe({
+        next: () => {
+          console.log('Draft saved');
+        },
+        error: (err) => {
+          console.error('Failed to save draft:', err);
+        },
+      });
+  }
+
+  private loadDraft(): void {
+    this.orderService.getDraft().subscribe({
+      next: (response) => {
+        if (response.success && response.data) {
+          const draft = response.data;
+
+          // Restore form data
+          if (draft.formData?.shipping) {
+            this.shippingForm.patchValue(draft.formData.shipping);
+          }
+          if (draft.formData?.payment) {
+            this.paymentForm.patchValue(draft.formData.payment);
+          }
+
+          // Restore step
+          if (draft.step) {
+            this.currentStep.set(draft.step);
+          }
+
+          // Restore selected shipping
+          if (draft.selectedShipping) {
+            this.checkoutData.shippingMethod = draft.selectedShipping;
+          }
+
+          console.log('Draft loaded successfully');
+        }
+      },
+      error: (err) => {
+        console.error('Failed to load draft:', err);
+      },
     });
   }
 
@@ -617,8 +686,16 @@ export class CheckoutComponent {
     this.orderService.createOrder(orderData).subscribe({
       next: (response) => {
         console.log('Order created successfully:', response.order);
+
+        // Delete draft order since checkout is complete
+        this.orderService.deleteDraft().subscribe({
+          next: () => console.log('Draft deleted'),
+          error: (err) => console.error('Failed to delete draft:', err),
+        });
+
         // Clear cart
         this.cartService.clearCart();
+
         // Navigate to confirmation with order data
         this.router.navigate(['/checkout/confirmation'], {
           queryParams: { orderNumber: response.order.orderNumber },

@@ -71,6 +71,7 @@ const categoryRoutes = require('./routes/category.routes')
 const shippingRoutes = require('./routes/shipping.routes')
 const orderRoutes = require('./routes/order.routes')
 const checkoutRoutes = require('./routes/checkout.routes')
+const draftRoutes = require('./routes/draft.routes')
 // const userRoutes = require('./routes/user.routes');
 
 // Use routes
@@ -80,6 +81,7 @@ app.use('/api/categories', categoryRoutes)
 app.use('/api/shipping', shippingRoutes)
 app.use('/api/orders', orderRoutes)
 app.use('/api/checkout', checkoutRoutes)
+app.use('/api/checkout', draftRoutes)
 // app.use('/api/users', userRoutes);
 
 // 404 handler

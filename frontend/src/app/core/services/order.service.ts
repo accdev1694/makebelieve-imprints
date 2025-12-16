@@ -204,4 +204,35 @@ export class OrderService {
       address,
     });
   }
+
+  /**
+   * Save draft order (incomplete checkout)
+   */
+  saveDraft(
+    step: number,
+    formData: any,
+    cartItems?: any[],
+    selectedShipping?: any
+  ): Observable<any> {
+    return this.http.post<any>(`${environment.apiUrl}/checkout/draft`, {
+      step,
+      formData,
+      cartItems,
+      selectedShipping,
+    });
+  }
+
+  /**
+   * Get saved draft order
+   */
+  getDraft(): Observable<any> {
+    return this.http.get<any>(`${environment.apiUrl}/checkout/draft`);
+  }
+
+  /**
+   * Delete draft order
+   */
+  deleteDraft(): Observable<any> {
+    return this.http.delete<any>(`${environment.apiUrl}/checkout/draft`);
+  }
 }
